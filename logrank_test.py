@@ -6,7 +6,7 @@ from numba import int32, float32,float64
 from numba import types, typed
 cc = CC('Logrank')
 @cc.export('logrank_test', 'float64[:](int64[:], int64[:],int64[:],int64)')
-
+##### d_myfactor, d_survivalMonth, d_death_observed,  must be sorted by d_survivalMonth ascending
 @njit('float64[:](int32[:], int64[:],int64[:],int64)',nogil=True)
 def logrank_test(d_myfactor, d_survivalMonth, d_death_observed, d_mylength):
     nall_timetotal = d_mylength
